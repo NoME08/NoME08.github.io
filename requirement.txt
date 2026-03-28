@@ -1,0 +1,228 @@
+================================================================================
+                    个人主页项目策划书（极简·Apple风格）
+                    适用对象：墨尔本大学 计算机大二学生
+                    兴趣爱好：健身 · 汽车 · 篮球
+================================================================================
+
+1. 项目概述
+-------------------------------------------------------------------------------
+本项目旨在为一名墨尔本大学大二学生（计算机专业）打造一个极简风格的个
+人主页，托管于 GitHub Pages。主页将作为数字名片，同时展示学生的专业能
+力与个人兴趣，体现自律、审美与对生活品质的追求。
+
+核心目标：
+- 视觉上完全对标 Apple 官网的极简美学（干净、留白、精致字体、细腻阴影）。
+- 内容上融合学业身份与三大爱好（健身、汽车、篮球），并穿插计算机项目。
+- 技术上采用 Vue 3 + Vite 构建，实现组件化与良好性能，同时保持轻量。
+- 响应式设计，完美适配桌面端与移动端。
+
+2. 风格定位（Apple 极简美学）
+-------------------------------------------------------------------------------
+2.1 整体氛围
+- 大量留白，内容区域宽度受限（最大 1200px，左右自动边距）。
+- 层级清晰，通过字体大小、粗细、颜色深浅区分信息优先级。
+- 无冗余装饰，所有元素都有明确的功能性。
+
+2.2 色彩
+- 主背景：纯白 (#FFFFFF)
+- 次级背景：极浅灰 (#F5F5F7) 用于卡片或区域分隔
+- 主文字：深灰 (#1D1D1F)
+- 次文字：中灰 (#86868B)
+- 强调色：单一低调点缀色，例如深红 (#C42E2E) 或深蓝 (#0066CC)，仅用于链接悬停、按钮、图标等极少量元素。
+- 边框：极淡灰 (#E8E8ED)
+
+2.3 字体
+- 英文字体栈：-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif
+- 标题字重：600 或 700
+- 正文字重：400
+- 行高：1.4 ~ 1.6，保证可读性
+
+2.4 圆角与阴影
+- 卡片圆角：18px（大圆角，现代感）
+- 按钮圆角：40px（胶囊形）
+- 阴影：极轻微，如 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05) 仅在卡片上使用，保持“浮起”感而不夸张。
+
+2.5 间距
+- 全局节间距：120px（桌面端），80px（移动端）
+- 卡片内边距：32px
+- 元素间间距：遵循 8 的倍数（8px, 16px, 24px, 32px, 48px...）
+
+3. 页面结构（单页滚动式）
+-------------------------------------------------------------------------------
+整个页面从上至下分为以下几个区块：
+
+[1] Hero 区（全屏首屏）
+[2] About 区（简短自我介绍）
+[3] 三大兴趣卡片区（健身、汽车、篮球）
+[4] 项目作品区（计算机相关项目展示）
+[5] Footer（社交链接与版权）
+
+（可选：在兴趣区与项目区之间可加入一条“最近动态”短横线，保持节奏）
+
+4. 各模块详细内容与设计
+-------------------------------------------------------------------------------
+4.1 Hero 区
+- 内容：大号姓名 + 身份标签 + 一句简短格言。
+- 设计：垂直居中，大标题 (64px 桌面端, 48px 移动端)，下方副标题 (24px)。
+- 具体文字示例：
+  主标题：“Your Name”
+  副标题：“Second-year CS @ UniMelb”
+  格言：“Lift. Drive. Shoot. Build.” 或自定义。
+- 可选：添加一个极简的滚动提示（小圆点或向下箭头），提示用户向下滚动。
+
+4.2 About 区
+- 内容：一段不超过 4 行的自我介绍，用轻快的语言描述自己的专业、兴趣方向，以及对三个爱好的热爱。
+- 设计：居中对齐，最大宽度 700px，正文 20px 或 18px，行高 1.5。
+- 示例文字：
+  “I’m a computer science student at the University of Melbourne, passionate about 
+   crafting clean code and chasing strong lifts. When I’m not in front of a screen, 
+   you’ll find me at the gym, on the basketball court, or behind the wheel exploring 
+   Melbourne’s car culture.”
+
+4.3 三大兴趣卡片区
+- 布局：桌面端三列等宽网格，移动端一列堆叠。
+- 每个卡片包含：
+  * 简约图标（可使用 Font Awesome 或 SVG）
+  * 标题（Fitness / Cars / Basketball）
+  * 描述（2~3 行，概括兴趣内容）
+  * 一组关键数据或特色点（用简洁列表或小标签）
+  * （可选）一个极细的边框按钮或链接（如“Read more”），指向更详细的笔记页面（后期可扩展）。
+
+- 卡片内容细节：
+  **健身卡片**
+    - 描述：“Strength training 4x/week | Tracking progressive overload”
+    - 关键数据示例：Squat 120kg / Bench 85kg / Deadlift 150kg（可根据实际情况修改）
+    - 附加：近期目标（如“Aiming for 100kg bench by end of semester”）
+  
+  **汽车卡片**
+    - 描述：“Petrolhead with a soft spot for JDM and modern performance.”
+    - 特色点：列出 2~3 款心仪车型（如“AE86 | GR Yaris | Porsche 911 GT3”）
+    - 附加：墨尔本本地车聚体验（简短一句）
+  
+  **篮球卡片**
+    - 描述：“Weekend pick-up games at Melbourne Uni Sports Centre.”
+    - 特色点：最喜欢的球员（如“LeBron James | Luka Dončić”）
+    - 附加：投篮风格或常用位置
+
+4.4 项目作品区
+- 布局：两列网格（桌面端）或一列（移动端），展示 2~4 个计算机项目。
+- 每个项目卡片包含：
+  * 项目标题
+  * 简短描述（1~2 行）
+  * 技术栈标签（如 Vue, Python, Flask 等，用小圆点或标签形式）
+  * GitHub 仓库链接（用极简按钮或链接）
+- 项目内容建议（与兴趣结合更佳）：
+  1. Fitness Tracker：一个简单的训练记录 PWA（Vue + IndexedDB）
+  2. Car Specs Comparator：车辆参数对比工具（Vue + 第三方 API）
+  3. Basketball Shot Log：投篮命中率记录小工具（纯前端，LocalStorage）
+  4. 当前个人主页本身（展示源码，展示 Vue + Vite 构建）
+- 若暂无成熟项目，可用“Coming soon”占位，但仍体现设计感。
+
+4.5 Footer
+- 内容：社交链接（GitHub, Instagram 等，可选） + 版权信息。
+- 设计：极细上边框，内边距 48px 32px，文字 14px，中灰色。
+- 社交链接：使用简约图标，hover 时变为强调色。
+
+5. 技术实现细节（Vue 3 + Vite）
+-------------------------------------------------------------------------------
+5.1 技术栈
+- 核心：Vue 3 (Composition API)
+- 构建工具：Vite
+- 样式：原生 CSS（配合 CSS 变量），不使用 UI 库，保证轻量和完全可控
+- 图标：Font Awesome 6 免费版（通过 CDN 引入）或使用 Heroicons 的 Vue 组件
+- 路由：无需 Vue Router，单页静态滚动即可
+- 部署：GitHub Pages（通过 `npm run build` 生成 dist，推送到 gh-pages 分支或根目录）
+
+5.2 组件划分
+- App.vue：根组件，负责整体布局和引入各区块
+- components/
+  - HeroSection.vue
+  - AboutSection.vue
+  - InterestsSection.vue（内部包含三个 InterestCard 子组件）
+  - ProjectsSection.vue（内部包含 ProjectCard 子组件）
+  - FooterSection.vue
+
+5.3 响应式断点
+- 移动端：< 768px（单列布局，字体略小，间距缩小）
+- 平板：768px ~ 1024px（两列布局，或适当调整卡片宽度）
+- 桌面：≥ 1024px（三列卡片，两列项目）
+
+5.4 性能优化
+- 图片使用 WebP 格式，提供 fallback。
+- 所有图片懒加载。
+- 关键 CSS 内联（或使用 Vite 的自动优化）。
+- 无外部依赖（除 Vue 和必要的图标库），减少请求。
+
+6. 图片资源规划
+-------------------------------------------------------------------------------
+为了保持 Apple 风格的干净，图片应选择高质、低饱和度、有人文感的摄影作品。
+建议使用 Unsplash 或自己的摄影作品，每个区块可放置一张代表性图片，但注意极简风格下图片不宜过多。
+
+- Hero 背景：可选，若使用则需非常克制（例如轻微纹理或大面积的纯色+微妙渐变）。
+- 兴趣卡片：每个卡片可使用一个极小的图标（矢量），不要大图。
+- 项目卡片：无图，纯文字。
+- 可选：在 Hero 下方增加一张个人照片（黑白或低饱和），圆形或圆角矩形，尺寸适中。
+
+7. 内容文案（占位符，可自定义）
+-------------------------------------------------------------------------------
+以下为各模块的示例文案，用户可替换为自己的真实信息。
+
+Hero
+  - 姓名：Zilong Wang
+  - 身份：Computer Science Student @ UniMelb
+  - 格言：No More Excuse.
+
+About
+  I'm a second-year computer science student at the University of Melbourne.
+  I believe in building things that matter — whether it's clean code, a stronger
+  deadlift, or a connection with the car I'm driving. Off the screen, you'll
+  find me on the court or exploring Melbourne's automotive scene.
+
+Fitness
+  - Strength training 3 / week
+  - PRs: Squat 140kg · Bench 85kg · Deadlift 150kg
+  - Currently chasing 500kg in total
+
+Cars
+  - JDM enthusiast & modern performance admirer
+  - Favorites: BRZ, WRX, G82 M3, CT5-V
+
+Basketball
+  - Play style: spot-up shooter, tries to defend
+  - Favourite player: Kobe Bryant
+
+Projects
+  - This Site | Vue 3, Vite | Source code available on GitHub.
+
+Footer
+  - GitHub | Wechat: FUatto08 | Email zilong.wang08@outlook.com
+  - © 2026 Zilong Wang. Built with Vue & minimalism.
+
+8. 部署指南
+-------------------------------------------------------------------------------
+1. 在本地创建项目：`npm create vite@latest my-personal-site -- --template vue`
+2. 按照上述组件结构编写代码，并替换占位内容。
+3. 配置 `vite.config.js` 中 base 路径为 `'/'`（GitHub Pages 用户仓库）。
+4. 运行 `npm run build`，生成 `dist` 文件夹。
+5. 将 `dist` 内容推送到 GitHub 仓库的 `gh-pages` 分支，或在仓库 Settings 中设置 Pages 为根目录。
+6. 确保 `index.html` 在根目录，即可通过 `https://yourusername.github.io` 访问。
+
+9. 可扩展性建议
+-------------------------------------------------------------------------------
+- 后期可增加一个“博客”区域，用 Markdown 文件动态加载，但当前版本保持极简。
+- 若想加入暗色模式，可通过 CSS 变量 + 媒体查询 `prefers-color-scheme` 实现。
+- 健身数据可连接 Google Sheets 或 Notion API 动态显示，但需权衡复杂度。
+
+10. 交付标准
+-------------------------------------------------------------------------------
+本地 AI 根据此策划书生成的代码应满足：
+- 完全符合 Apple 极简视觉风格。
+- 使用 Vue 3 + Vite 构建，组件化清晰。
+- 响应式完美，无水平滚动，触摸友好。
+- 所有文案和图片使用策划书中的占位符，用户可轻松替换。
+- 无控制台报错，性能优秀（Lighthouse > 90）。
+- 提供详细的 README 文件，说明如何运行、修改和部署。
+
+================================================================================
+                              策划书结束
+================================================================================
